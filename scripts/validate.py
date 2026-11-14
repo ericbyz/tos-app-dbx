@@ -61,24 +61,51 @@ def main() -> int:
     if not cfg.get("help"):
         err("help URL is mandatory and cannot be empty")
 
-    # port-mode consistency: config.ini path port == dbx.env DBX_PORT
+    # UI mode checks: iframe (embedded, nginx port-proxy) OR open_path (new tab)
     path = cfg.get("path", "")
-    m = re.match(r"^http://\$\{ip\}:(\d+)$", path)
-    if cfg.get("open_path") and not m:
-        err(f"open_path mode expects path like http://${{ip}}:<port>, got {path!r}")
+    env = open("dbx.env", encoding="utf-8").read()
+    env_port = None
+    for line in env.splitlines():
+        if line.startswith("DBX_PORT="):
+            env_port = int(line.split("=", 1)[1])
+    app_id = cfg.get("id", "")
+
+    if cfg.get("open_path"):
+        # external-tab mode: path must be the full URL
+        m = re.match(r"^http://\$\{ip\}:(\d+)$", path)
+        if not m:
+            err(f"open_path mode expects path like http://${{ip}}:<port>, got {path!r}")
+        else:
+            port = int(m.group(1))
+            if port in RESERVED_PORTS:
+                err(f"port {port} is a TOS reserved port")
+            if not (8000 <= port <= 19999):
+                advisories.append(f"port {port} is outside the recommended 8000-19999 range")
+            if env_port != port:
+                err(f"dbx.env DBX_PORT={env_port} does not match config.ini path port {port}")
+    elif cfg.get("type") == "iframe":
+        # embedded mode: path is the platform route, nginx conf proxies it to DBX_PORT
+        if path != f"/{app_id}/":
+            err(f"iframe mode expects path '/{app_id}/', got {path!r}")
+        conf_path = f"nginx/{app_id}.conf"
+        if not os.path.exists(conf_path):
+            err(f"iframe mode requires {conf_path} (platform nginx route)")
+        else:
+            conf = open(conf_path, encoding="utf-8").read()
+            conf_lines = [l for l in conf.splitlines() if not l.strip().startswith("#")]
+            conf_code = "\n".join(conf_lines)
+            if "location /" + app_id + "/" not in conf_code:
+                err(f"{conf_path} missing location /{app_id}/ block")
+            if f"127.0.0.1:{env_port}" not in conf_code:
+                err(f"{conf_path} does not proxy to 127.0.0.1:{env_port} (dbx.env DBX_PORT)")
+            if "server {" in conf_code or "server{" in conf_code:
+                err(f"{conf_path} must not contain server{{}} blocks (TOS rule)")
+        if env_port is None:
+            err("dbx.env missing DBX_PORT")
+        elif not (8000 <= env_port <= 19999):
+            advisories.append(f"port {env_port} is outside the recommended 8000-19999 range")
     else:
-        port = int(m.group(1))
-        if port in RESERVED_PORTS:
-            err(f"port {port} is a TOS reserved port")
-        if not (8000 <= port <= 19999):
-            advisories.append(f"port {port} is outside the recommended 8000-19999 range")
-        env = open("dbx.env", encoding="utf-8").read()
-        env_port = None
-        for line in env.splitlines():
-            if line.startswith("DBX_PORT="):
-                env_port = int(line.split("=", 1)[1])
-        if env_port != port:
-            err(f"dbx.env DBX_PORT={env_port} does not match config.ini path port {port}")
+        err("config.ini must declare either type=iframe or open_path=true")
 
     # lang coverage
     lang_path = f"{cfg.get('id', 'dbx')}.lang"

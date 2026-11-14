@@ -80,6 +80,7 @@ build_platform() {
     mkdir -p "${staging}/usr/local/${APP_ID}/bin" \
              "${staging}/usr/local/${APP_ID}/images/icons" \
              "${staging}/usr/local/${APP_ID}/init.d" \
+             "${staging}/usr/local/${APP_ID}/nginx" \
              "${staging}/usr/share/doc/${APP_ID}" \
              "${staging}/DEBIAN"
 
@@ -115,6 +116,8 @@ EOF
     install -m 644 dbx.lang   "${staging}/usr/local/${APP_ID}/dbx.lang"
     install -m 644 images/icons/dbx.svg "${staging}/usr/local/${APP_ID}/images/icons/dbx.svg"
     install -m 644 init.d/dbx.service   "${staging}/usr/local/${APP_ID}/init.d/dbx.service"
+    # platform nginx route (iframe embedded mode: /dbx/ -> 127.0.0.1:18224)
+    install -m 644 nginx/dbx.conf       "${staging}/usr/local/${APP_ID}/nginx/dbx.conf"
 
     # per-platform metadata
     install -m 644 DEBIAN/control "${staging}/DEBIAN/control"
