@@ -34,12 +34,13 @@ jobs:
               problems.append(
                   f"config.ini version {cfg['version']} != UPSTREAM {pin.get('UPSTREAM_VERSION')}"
               )
-          for plat in ("x86_64", "aarch64"):
+          for plat, tokens in (("x86_64", ("x86_64", "x64")), ("aarch64", ("aarch64", "arm64"))):
               sha = pin.get(f"SHA256_{plat}", "")
               if not re.fullmatch(r"[0-9a-f]{64}", sha):
                   problems.append(f"SHA256_{plat} is not a pinned 64-hex digest: {sha!r}")
-              if f"{plat}" not in pin.get(f"ASSET_{plat}", ""):
-                  problems.append(f"ASSET_{plat} does not contain its platform token")
+              asset = pin.get(f"ASSET_{plat}", "")
+              if not any(t in asset for t in tokens):
+                  problems.append(f"ASSET_{plat} does not contain a platform token: {asset!r}")
           if problems:
               print("\n".join(problems), file=sys.stderr)
               sys.exit(1)
