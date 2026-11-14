@@ -1,0 +1,13 @@
+Package: dbx
+Version: 0.6.70
+Architecture: amd64
+Section: utils
+Priority: optional
+Maintainer: ericbyz <ericbyz@users.noreply.github.com>
+Depends: systemd
+Description: DBX - lightweight database client for 100+ databases
+ DBX is a lightweight cross-platform database client supporting MySQL,
+ PostgreSQL, SQLite, Redis, MongoDB, DuckDB and 100+ other databases.
+ This package repackages the upstream dbx-web headless server (static
+ musl binary) for the TOS App Center; the web UI is served on port 18224.
+ Upstream project: https://github.com/t8y2/dbx (Apache-2.0).

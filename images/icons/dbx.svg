@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="dbxBlue" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#35A6F4"/>
+      <stop offset="1" stop-color="#1D50E0"/>
+    </linearGradient>
+    <linearGradient id="dbxPurple" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#6D6AF8"/>
+      <stop offset="1" stop-color="#9B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Database cylinder, three bands separated by transparent cuts -->
+  <g fill="url(#dbxBlue)">
+    <!-- top cap -->
+    <ellipse cx="215" cy="145" rx="135" ry="45"/>
+    <!-- band 1 -->
+    <path d="M 80,145 A 135 45 0 0 0 350,145 L 350,225 A 135 45 0 0 1 80,225 Z"/>
+    <!-- band 2 -->
+    <path d="M 80,247 A 135 45 0 0 0 350,247 L 350,297 A 135 45 0 0 1 80,297 Z"/>
+    <!-- band 3 -->
+    <path d="M 80,319 A 135 45 0 0 0 350,319 L 350,372 A 135 45 0 0 1 80,372 Z"/>
+  </g>
+
+  <!-- X accent -->
+  <g>
+    <rect x="332" y="286" width="60" height="196" rx="30" fill="url(#dbxPurple)" transform="rotate(45 362 384)"/>
+    <rect x="332" y="286" width="60" height="196" rx="30" fill="url(#dbxBlue)" transform="rotate(-45 362 384)"/>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+# Upstream project pin — single source of truth for reproducible builds.
+# Parsed by scripts/fetch_upstream.sh and build.sh (KEY=VALUE, no spaces).
+# Bump with: scripts/bump_upstream.sh <new-version>
+
+# Upstream repository (Apache-2.0). Declared for license compliance and
+# for the "build script that reproduces the package" submission requirement.
+UPSTREAM_REPO=https://github.com/t8y2/dbx
+UPSTREAM_LICENSE=Apache-2.0
+
+# Pinned upstream release tag and version (must equal config.ini "version")
+UPSTREAM_TAG=v0.6.70
+UPSTREAM_VERSION=0.6.70
+
+# Pinned browser-static (headless dbx-web server, musl static binary) release
+# assets per TOS platform. NOTE: upstream asset naming differs per arch and
+# the *_x86_64-browser-static.zip asset is the WINDOWS build — the Linux
+# x86_64 build ships as DBX_*_x64-browser-static.tar.gz.
+ASSET_x86_64=DBX_0.6.70_x64-browser-static.tar.gz
+ASSET_aarch64=DBX_0.6.70_arm64-browser-static.tar.gz
+
+# SHA256 of each pinned asset (from upstream .sha256 files; verified by fetch_upstream.sh).
+SHA256_x86_64=c1f652bb7db18c006b893336941b8eff5c9c11da3d186089c03f55d9b9b8d496
+SHA256_aarch64=7df12c26401e01d7973befc780a21cef21390e5ac28ba4fd4a649b1550190dfb

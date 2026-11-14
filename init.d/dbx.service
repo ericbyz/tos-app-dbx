@@ -1,0 +1,40 @@
+[Unit]
+Description=DBX - Database Client Web Service (TOS)
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+[Service]
+Type=simple
+User=dbx
+Group=dbx
+WorkingDirectory=/usr/local/dbx
+EnvironmentFile=/usr/local/dbx/dbx.env
+ExecStart=/usr/local/dbx/bin/dbx-web-bin
+TimeoutStartSec=30
+TimeoutStopSec=10
+
+# Security hardening (TOS 7 review requires NoNewPrivileges/ProtectSystem/ProtectHome;
+# Restart= is intentionally omitted — service lifecycle is managed by the platform)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictRealtime=true
+MemoryDenyWriteExecute=true
+LockPersonality=true
+RestrictSUIDSGID=true
+RemoveIPC=true
+SystemCallArchitectures=native
+
+# dbx-web persists its database and managed key under DBX_DATA_DIR only
+ReadWritePaths=/var/lib/dbx
+
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

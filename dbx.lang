@@ -1,0 +1,181 @@
+[zh-cn]
+name = "DBX 数据库客户端"
+auth = "ericbyz"
+descript = "轻量级数据库管理客户端，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB 等 100+ 数据库，安装后通过 4224 端口在浏览器中使用。"
+release_note = "1. 将上游 dbx-web 封装为 TOS 应用中心应用。"
+important = ""
+
+[zh-hk]
+name = "DBX 數據庫客戶端"
+auth = "ericbyz"
+descript = "輕量級數據庫管理客戶端，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB 等 100+ 數據庫，安裝後通過 4224 端口在瀏覽器中使用。"
+release_note = "1. 将上游 dbx-web 封装为 TOS 应用中心应用。"
+important = ""
+
+[en-us]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lightweight database client for 100+ databases including MySQL, PostgreSQL, SQLite, Redis and MongoDB. Runs as a web service on port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[ko-kr]
+name = "DBX"
+auth = "ericbyz"
+descript = "MySQL, PostgreSQL, SQLite, Redis, MongoDB 등 100개 이상의 데이터베이스를 지원하는 경량 데이터베이스 클라이언트입니다. 웹 서비스(포트 4224)로 실행됩니다."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[ja-jp]
+name = "DBX"
+auth = "ericbyz"
+descript = "MySQL、PostgreSQL、SQLite、Redis、MongoDB など 100 以上のデータベースに対応した軽量データベースクライアント。Web サービス（ポート 4224）として動作します。"
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[de-de]
+name = "DBX"
+auth = "ericbyz"
+descript = "Leichter Datenbank-Client für über 100 Datenbanken, u. a. MySQL, PostgreSQL, SQLite, Redis und MongoDB. Läuft als Webdienst auf Port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[fr-fr]
+name = "DBX"
+auth = "ericbyz"
+descript = "Client de base de données léger pour plus de 100 bases de données, dont MySQL, PostgreSQL, SQLite, Redis et MongoDB. Fonctionne en service web sur le port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[it-it]
+name = "DBX"
+auth = "ericbyz"
+descript = "Client di database leggero per oltre 100 database, tra cui MySQL, PostgreSQL, SQLite, Redis e MongoDB. Funziona come servizio web sulla porta 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[es-es]
+name = "DBX"
+auth = "ericbyz"
+descript = "Cliente de bases de datos ligero para más de 100 bases de datos, incluidas MySQL, PostgreSQL, SQLite, Redis y MongoDB. Se ejecuta como servicio web en el puerto 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[hu-hu]
+name = "DBX"
+auth = "ericbyz"
+descript = "Könnyű adatbázis-kliens több mint 100 adatbázishoz, köztük MySQL, PostgreSQL, SQLite, Redis és MongoDB. Webes szolgáltatásként fut a 4224-es porton."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[pl-pl]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lekki klient baz danych obsługujący ponad 100 baz danych, m.in. MySQL, PostgreSQL, SQLite, Redis i MongoDB. Działa jako usługa internetowa na porcie 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[tr-tr]
+name = "DBX"
+auth = "ericbyz"
+descript = "MySQL, PostgreSQL, SQLite, Redis ve MongoDB dahil 100'den fazla veritabanını destekleyen hafif bir veritabanı istemcisi. 4224 numaralı bağlantı noktasında web servisi olarak çalışır."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[ru-ru]
+name = "DBX"
+auth = "ericbyz"
+descript = "Легковесный клиент баз данных: MySQL, PostgreSQL, SQLite, Redis, MongoDB и более 100 других. Работает как веб-сервис на порту 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[pt-pt]
+name = "DBX"
+auth = "ericbyz"
+descript = "Cliente de bases de dados leve para mais de 100 bases de dados, incluindo MySQL, PostgreSQL, SQLite, Redis e MongoDB. Funciona como serviço web na porta 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[cs-cz]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lehký databázový klient pro více než 100 databází, včetně MySQL, PostgreSQL, SQLite, Redis a MongoDB. Běží jako webová služba na portu 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[da-dk]
+name = "DBX"
+auth = "ericbyz"
+descript = "Let databaseklient til over 100 databaser, herunder MySQL, PostgreSQL, SQLite, Redis og MongoDB. Kører som webtjeneste på port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[nl-nl]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lichte databaseclient voor meer dan 100 databases, waaronder MySQL, PostgreSQL, SQLite, Redis en MongoDB. Draait als webservice op poort 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[nb-no]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lett databaseklient for over 100 databaser, inkludert MySQL, PostgreSQL, SQLite, Redis og MongoDB. Kjører som webtjeneste på port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[sv-se]
+name = "DBX"
+auth = "ericbyz"
+descript = "Lätt databasklient för över 100 databaser, inklusive MySQL, PostgreSQL, SQLite, Redis och MongoDB. Körs som webbtjänst på port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[el-gr]
+name = "DBX"
+auth = "ericbyz"
+descript = "Ελαφρύς πελάτης βάσεων δεδομένων για πάνω από 100 βάσεις, μεταξύ των οποίων MySQL, PostgreSQL, SQLite, Redis και MongoDB. Λειτουργεί ως υπηρεσία web στη θύρα 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[ro-ro]
+name = "DBX"
+auth = "ericbyz"
+descript = "Client de baze de date ușor pentru peste 100 de baze de date, inclusiv MySQL, PostgreSQL, SQLite, Redis și MongoDB. Rulează ca serviciu web pe portul 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[th-th]
+name = "DBX"
+auth = "ericbyz"
+descript = "ไคลเอนต์ฐานข้อมูลแบบเบา รองรับฐานข้อมูลกว่า 100 ระบบ เช่น MySQL, PostgreSQL, SQLite, Redis และ MongoDB ทำงานเป็นเว็บเซอร์วิสบนพอร์ต 4224"
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[vi-vn]
+name = "DBX"
+auth = "ericbyz"
+descript = "Ứng dụng khách cơ sở dữ liệu nhẹ hỗ trợ hơn 100 cơ sở dữ liệu, bao gồm MySQL, PostgreSQL, SQLite, Redis và MongoDB. Chạy dưới dạng dịch vụ web trên cổng 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[id-id]
+name = "DBX"
+auth = "ericbyz"
+descript = "Klien basis data ringan untuk 100+ basis data termasuk MySQL, PostgreSQL, SQLite, Redis, dan MongoDB. Berjalan sebagai layanan web di port 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[ar-sa]
+name = "DBX"
+auth = "ericbyz"
+descript = "عميل قواعد بيانات خفيف يدعم أكثر من 100 قاعدة بيانات منها MySQL وPostgreSQL وSQLite وRedis وMongoDB. يعمل كخدمة ويب على المنفذ 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
+
+[he-il]
+name = "DBX"
+auth = "ericbyz"
+descript = "קליינט מסדי נתונים קל משקל עבור למעלה מ־100 מסדי נתונים, כולל MySQL, PostgreSQL, SQLite, Redis ו־MongoDB. פועל כשירות אינטרנט בפורט 4224."
+release_note = "1. Packaged upstream dbx-web for the TOS App Center."
+important = ""
