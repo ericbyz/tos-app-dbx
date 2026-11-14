@@ -36,7 +36,7 @@ jobs:
           #   dir/file-in-usr-local — TOS required install root
           #   embedded-library      — symbols detected inside upstream musl binary
           lintian --info build/output/dbx_${{ matrix.arch }}.deb || true
-          lintian --check-parts --fail-on error \
+          lintian --fail-on error \
             --suppress-tags dir-in-usr-local,file-in-usr-local,embedded-library \
             build/output/dbx_${{ matrix.arch }}.deb
 
