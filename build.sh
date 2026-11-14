@@ -94,10 +94,11 @@ Source: ${PIN[UPSTREAM_REPO]}
 Files: *
 Copyright: $(date +%Y) DBX contributors
 License: Apache-2.0
+ The complete text of the Apache-2.0 license is available upstream at
+ https://www.apache.org/licenses/LICENSE-2.0 and in the LICENSE file of
+ the packaging repository. On Debian systems it can be found in
+ /usr/share/common-licenses/Apache-2.0.
 EOF
-    # Full license text (required: lintian copyright-not-using-common-license-for-apache2),
-    # with each line indented by one space and blank lines as " ." per DEP-5
-    sed -e 's/^/ /' -e 's/^ $/ ./' LICENSE >> "${staging}/usr/share/doc/${APP_ID}/copyright"
     {
         echo "dbx (${VERSION}) upstream; urgency=low"
         echo
