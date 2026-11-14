@@ -5,7 +5,7 @@ Section: utils
 Priority: optional
 Maintainer: ericbyz <ericbyz@users.noreply.github.com>
 Depends: systemd
-Description: DBX - lightweight database client for 100+ databases
+Description: Lightweight database client for 100+ databases
  DBX is a lightweight cross-platform database client supporting MySQL,
  PostgreSQL, SQLite, Redis, MongoDB, DuckDB and 100+ other databases.
  This package repackages the upstream dbx-web headless server (static

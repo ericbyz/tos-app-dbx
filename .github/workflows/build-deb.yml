@@ -30,9 +30,15 @@ jobs:
         run: |
           dpkg-deb -I build/output/dbx_${{ matrix.arch }}.deb
           dpkg-deb -c build/output/dbx_${{ matrix.arch }}.deb | head -30
-          # Error-level lintian findings block the build; warnings are advisory.
+          # Error-level lintian findings block the build, EXCEPT tags that are
+          # structural to TOS deb apps (guide ch.8 mandates /usr/local/<app_id>/)
+          # or false positives on the unmodified upstream static binary:
+          #   dir/file-in-usr-local — TOS required install root
+          #   embedded-library      — symbols detected inside upstream musl binary
           lintian --info build/output/dbx_${{ matrix.arch }}.deb || true
-          lintian --check-parts --fail-on error build/output/dbx_${{ matrix.arch }}.deb
+          lintian --check-parts --fail-on error \
+            --suppress-tags dir-in-usr-local,file-in-usr-local,embedded-library \
+            build/output/dbx_${{ matrix.arch }}.deb
 
       - name: Generate checksums
         run: |
