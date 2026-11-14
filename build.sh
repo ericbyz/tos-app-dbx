@@ -80,7 +80,40 @@ build_platform() {
     mkdir -p "${staging}/usr/local/${APP_ID}/bin" \
              "${staging}/usr/local/${APP_ID}/images/icons" \
              "${staging}/usr/local/${APP_ID}/init.d" \
+             "${staging}/usr/share/doc/${APP_ID}" \
              "${staging}/DEBIAN"
+
+    # Debian doc files (copyright/changelog are expected by lintian and by
+    # the Apache-2.0 redistribution obligations — see NOTICE)
+    cat > "${staging}/usr/share/doc/${APP_ID}/copyright" <<EOF
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: DBX
+Upstream-Homepage: ${PIN[UPSTREAM_REPO]}
+Source: ${PIN[UPSTREAM_REPO]}
+
+Files: *
+Copyright: $(date +%Y) DBX contributors
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at .
+ .
+     https://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+EOF
+    {
+        echo "dbx (${VERSION}) upstream; urgency=low"
+        echo
+        echo "  * Repackaged upstream ${PIN[UPSTREAM_REPO]} ${TAG} browser-static build for TOS."
+        echo "    Binary sha256 pinned in the UPSTREAM file of the packaging repository."
+        echo
+        echo " -- ericbyz <ericbyz@users.noreply.github.com>  $(date -R)"
+    } | gzip -9 > "${staging}/usr/share/doc/${APP_ID}/changelog.gz"
 
     # application payload
     extract_binary "${ASSET_FILE[${platform}]}" "${staging}/usr/local/${APP_ID}/bin/dbx-web-bin"
